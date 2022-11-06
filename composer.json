@@ -1,0 +1,17 @@
+{
+    "name": "ns3777k/doctrine-dbal-youtube",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ns3777k\\DoctrineDbalYoutube\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nikita Safonov",
+            "email": "ns3777k@gmail.com"
+        }
+    ],
+    "require": {}
+}
