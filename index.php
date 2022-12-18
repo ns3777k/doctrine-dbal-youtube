@@ -16,5 +16,3 @@ $connection = DriverManager::getConnection(
 );
 
 Bootstrap::init($connection);
-
-var_dump($connection->createSchemaManager()->listTableNames());

@@ -19,10 +19,12 @@ class Bootstrap
         $clientsTable = new Table('clients');
         $clientsTable->addColumn('id', Types::INTEGER, ['notnull' => true, 'autoincrement' => true]);
         $clientsTable->addColumn('name', Types::STRING, ['notnull' => true, 'length' => 255]);
+        $clientsTable->setPrimaryKey(['id']);
 
         $employeesTable = new Table('employees');
         $employeesTable->addColumn('id', Types::INTEGER, ['notnull' => true, 'autoincrement' => true]);
         $employeesTable->addColumn('name', Types::STRING, ['notnull' => true, 'length' => 255]);
+        $employeesTable->setPrimaryKey(['id']);
 
         $sm = $connection->createSchemaManager();
 
