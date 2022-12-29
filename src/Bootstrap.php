@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Exception;
 use Ns3777k\DoctrineDbalYoutube\DBAL\Types\SuperInetType;
 use Ns3777k\DoctrineDbalYoutube\DBAL\Types\Types as CustomTypes;
+use Ns3777k\DoctrineDbalYoutube\VO\IpBlock;
 
 class Bootstrap
 {
@@ -16,6 +17,17 @@ class Bootstrap
     {
         self::createTypes($connection);
         self::createTables($connection);
+    }
+
+    public static function loadNetworkFixtures(Connection $connection): void
+    {
+        foreach (range(1, 3) as $value) {
+            $connection->insert(
+                'network',
+                ['title' => 'MSK-ADR-' . $value, 'range' => new IpBlock('192.168.' . $value . '2.1/24')],
+                ['range' => CustomTypes::SUPER_INET->value],
+            );
+        }
     }
 
     private static function createTables(Connection $connection): void
